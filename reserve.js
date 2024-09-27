@@ -48,7 +48,7 @@ function traducirMes(mes) {
     case 'Dec':
       return 'Diciembre';
     default:
-      console.log(mes);
+      //console.log(mes);
       return mes;
   }
 }
@@ -204,20 +204,20 @@ async function actualizarServicios() {
         diasQueNo: servicio.diasQueNo
       });
     }
-    console.log('Servicios:', servicios);
+    //console.log('Servicios:', servicios);
   }
 }
 
 async function establecerServiciosAVariable() {
   await actualizarServicios();
-  console.log('Servicios:', servicios);
+  //console.log('Servicios:', servicios);
 
   for (let i = 0; i < servicios.length; i++) {
     let fechasGeneradas = generarFechas(servicios[i]);
     let fechasFiltradas = filtrarFechas(fechasGeneradas);
 
     servicios[i].fechas = fechasFiltradas;
-    console.log("fechas del servicio " + servicios[i].nombre + " : " + servicios[i].fechas)
+    //console.log("fechas del servicio " + servicios[i].nombre + " : " + servicios[i].fechas)
   }
 
   
@@ -252,7 +252,7 @@ function agregarDivConEstructura() {
   
   for (let i = 0; i < servicios.length; i++) {
     let servicio = servicios[i];
-    console.log("El servicio es: " + servicio.nombre); // Aquí deberías obtener el nombre del servicio
+    //console.log("El servicio es: " + servicio.nombre); // Aquí deberías obtener el nombre del servicio
   
 
     // Filtrar las fechas
@@ -270,7 +270,7 @@ function agregarDivConEstructura() {
       let fecha = servicio.horarios[fechaKey];
       for (let franjaKey in fecha){
         let franja = fecha[franjaKey]
-          console.log(`Franja para ${fechaKey}: ${franja.de}  a  ${franja.a}`  );
+          //console.log(`Franja para ${fechaKey}: ${franja.de}  a  ${franja.a}`  );
           let deSegundos = timeToSeconds(franja.de);
           let aSegundos = timeToSeconds(franja.a);
           let tiempoTotalDeFranja = aSegundos - deSegundos;
@@ -299,10 +299,10 @@ function agregarDivConEstructura() {
         }
       }
 
-      console.log(`fecha traducida   ${servicio.fechas[i]}`);
+      //console.log(`fecha traducida   ${servicio.fechas[i]}`);
     }
 
-      console.log(`fechas para el servicio de ${servicio.nombre} son:  ${servicio.fechas}`);
+      //console.log(`fechas para el servicio de ${servicio.nombre} son:  ${servicio.fechas}`);
 
       if (servicio.nombre == "Yoga"){
         for (let i = 0; i < servicio.fechas.length; i++){
@@ -1158,7 +1158,7 @@ function manejarCambioCheckbox(dia) {
   // Array para almacenar las promesas de obtener las horas reservadas
   const promesas = [];
 
-  console.log("Dia que se va a comparar::   " + dia)
+  //console.log("Dia que se va a comparar::   " + dia)
   
   // Obtener las horas reservadas para el día y añadir la promesa al array de promesas
   const promesa = obtenerHorasReservadasParaDia(dia)
@@ -1174,7 +1174,7 @@ function manejarCambioCheckbox(dia) {
   Promise.all(promesas)
     .then(() => {
       // Imprimir las horas reservadas para depuración
-      console.log('Horas reservadas:', horasReservadasArray);
+      //console.log('Horas reservadas:', horasReservadasArray);
       
       // Inhabilitar las horas reservadas en el select
       inhabilitarHorasEnSelect(horasReservadasArray);
